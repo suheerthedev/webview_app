@@ -20,9 +20,10 @@ class StartupView extends StackedView<StartupViewModel> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'STACKED',
+              'Web View App',
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
             ),
+            const SizedBox(height: 20,),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [

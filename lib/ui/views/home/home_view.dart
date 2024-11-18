@@ -17,8 +17,11 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     controller = WebViewController()
+      ..setUserAgent(
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+      )
       ..loadRequest(
-        Uri.parse('https://flutter.dev'),
+        Uri.parse('https://www.flutter.dev'),
       );
   }
 
@@ -27,9 +30,8 @@ class _HomeViewState extends State<HomeView> {
     return ViewModelBuilder.nonReactive(
         viewModelBuilder: () => HomeViewModel(),
         builder: (context, viewModel, child) {
-          return  Scaffold(
-            body: WebViewWidget(controller: controller)
-          );
+          return Scaffold(
+              body: SafeArea(child: WebViewWidget(controller: controller)));
         });
   }
 }
